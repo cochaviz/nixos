@@ -9,6 +9,11 @@
         action = "<Esc>";
       }
       {
+        mode = ["n" "t"];
+        key = "<leader>'";
+        action = "<cmd>ToggleTerm<cr>";
+      }
+      {
         mode = ["n"];
         key = "<leader>pb";
         action = "<cmd>b#<cr>";

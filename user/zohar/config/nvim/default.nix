@@ -31,7 +31,7 @@
 
       toggleterm = {
         enable = true;
-        settings.open_mapping = "[[<leader>']]";
+        # settings.open_mapping = "[[<leader>']]";
       };
 
       telescope = {
@@ -42,20 +42,16 @@
 	  "<leader>fb" = { action = "buffers"; };
 	  # "<leader>pg" = { action = "git_files"; };
 	};
-	extensions = {
-	  fzf-native.enable = true;
-	};
+	# extensions = {
+	#   fzf-native.enable = true;
+	# };
       };
+
+      cmp-nvim-lsp.enable = true;
 
       cmp = {
         enable = true;
         autoEnableSources = true;
-
-	filetype = {
-	  markdown.sources = [
-	    { name = "nvim_lsp"; }
-	  ];
-	};
 
         settings = {
           experimental = { ghost_text = true; };
@@ -71,15 +67,28 @@
             "<CR>" = "cmp.mapping.confirm({ select = true })";
             "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
           };
+
+	  sources = [
+	    { name = "nvim_lsp"; }
+	    { name = "path"; }
+	  ];
         };
       };
       lsp = {
         enable = true;
         servers = {
           nil-ls.enable = true; # nix
-          pylsp.enable = true; # python
-	  cssls.enable = true;
-	  html.enable = true;
+	  pyright.enable = true; # python
+	  rust-analyzer = {
+	    enable = true; # rust
+	    installCargo = true;
+	    installRustc = true;
+	  };
+
+
+	  cssls.enable = true; # css
+	  html.enable = true; # html
+
 	  marksman.enable = true; # markdown
 	  typos-lsp.enable = true; # spell checker
         };
