@@ -64,6 +64,7 @@
 	extraModules = [ 
 	  ./system/modules/virtualization.nix
 	  (import ./system/modules/syncthing.nix "zohar")
+	  ./system/modules/tailscale.nix
 	]; 
       }
       { 
@@ -71,6 +72,7 @@
 	extraModules = [ 
 	  ./system/modules/virtualization.nix
 	  (import ./system/modules/syncthing.nix "zohar")
+	  ./system/modules/tailscale.nix
 	]; 
       }
       { hostname = "vm"; extraModules = []; }

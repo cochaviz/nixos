@@ -3,7 +3,6 @@
 {
   imports = [ 
     ./hardware-configuration.nix 
-    ./wireguard.nix
   ];
 
   networking.hostName = "appa";
