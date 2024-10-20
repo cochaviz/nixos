@@ -1,0 +1,3 @@
+[submodule "devshells/rednix"]
+	path = devshells/rednix
+	url = git@github.com:redcode-labs/RedNix.git

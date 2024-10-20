@@ -3,6 +3,7 @@
 {
   imports = [ 
     ./hardware-configuration.nix 
+    ./wireguard.nix
   ];
 
   networking.hostName = "appa";
@@ -20,6 +21,7 @@
 
   environment.systemPackages = with pkgs; [
     discord
+    wl-clipboard
   ];
 
   # wired networking

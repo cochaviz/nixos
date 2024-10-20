@@ -57,17 +57,23 @@
       extraSpecialArgs = { inherit inputs; };
     };
 
-    # List of systems to configure
+    # == SYSTEMS == 
     systems = [
       { 
 	hostname = "appa"; 
-	extraModules = [ (import ./system/modules/virtualization.nix ["zohar"]) ]; 
+	extraModules = [ 
+	  ./system/modules/virtualization.nix
+	  (import ./system/modules/syncthing.nix "zohar")
+	]; 
       }
       { hostname = "vm"; extraModules = []; }
     ];
-    # List of users to configure
+    # == USERS ==
     users = [
-      { username = "zohar"; extraModules = [ ./shared/stylix.nix nixvim.homeManagerModules.nixvim ]; }
+      { 
+	username = "zohar"; 
+	extraModules = [ ./shared/stylix.nix nixvim.homeManagerModules.nixvim ]; 
+      }
     ];
 
   in {

@@ -6,5 +6,6 @@
     ./git
     ./fish
     ./nvim
+    ./direnv
   ];
 }

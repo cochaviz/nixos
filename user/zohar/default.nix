@@ -25,9 +25,9 @@ in {
     zen-browser
     keepassxc
     spotify
+    signal-desktop
 
     vscode
-    python3
     btop
     nil
 
