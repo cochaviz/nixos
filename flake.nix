@@ -66,6 +66,13 @@
 	  (import ./system/modules/syncthing.nix "zohar")
 	]; 
       }
+      { 
+	hostname = "momo"; 
+	extraModules = [ 
+	  ./system/modules/virtualization.nix
+	  (import ./system/modules/syncthing.nix "zohar")
+	]; 
+      }
       { hostname = "vm"; extraModules = []; }
     ];
     # == USERS ==
