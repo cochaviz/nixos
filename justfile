@@ -4,7 +4,10 @@ testing-branch := "testing"
 git-add:
   git add .
 
-commit-temporary:
+is-main-or-testing:
+  git status -b -s | grep -Po "main|testing" 
+
+commit-temporary: is-main-or-testing
   git checkout {{testing-branch}} || git checkout -b {{testing-branch}}
   git commit --amend -m "Auto-commit" || echo "No changes to commit..."
   
