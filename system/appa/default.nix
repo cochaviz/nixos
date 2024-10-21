@@ -21,6 +21,7 @@
   environment.systemPackages = with pkgs; [
     discord
     wl-clipboard
+    docker-compose
   ];
 
   # wired networking
@@ -46,5 +47,8 @@
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  # nvidia docker passthrough
+  hardware.nvidia-container-toolkit.enable = true;
 }
 
