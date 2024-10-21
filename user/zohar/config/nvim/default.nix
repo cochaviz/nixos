@@ -10,7 +10,10 @@
     defaultEditor = true;
     vimdiffAlias = true;
 
-    colorschemes.everforest.enable = true;
+    colorschemes.catppuccin = {
+      enable = true;
+      settings.flavor = "macchiato";
+    };
     clipboard.register = "unnamedplus";
 
     opts = {
@@ -28,6 +31,7 @@
       nvim-autopairs.enable = true;
       neo-tree.enable = true;
       gitsigns.enable = true;
+      web-devicons.enable = true;
 
       toggleterm = {
         enable = true;
@@ -77,9 +81,9 @@
       lsp = {
         enable = true;
         servers = {
-          nil-ls.enable = true; # nix
+          nil_ls.enable = true; # nix
 	  pyright.enable = true; # python
-	  rust-analyzer = {
+	  rust_analyzer = {
 	    enable = true; # rust
 	    installCargo = true;
 	    installRustc = true;
@@ -90,7 +94,7 @@
 	  html.enable = true; # html
 
 	  marksman.enable = true; # markdown
-	  typos-lsp.enable = true; # spell checker
+	  typos_lsp.enable = true; # spell checker
         };
 	keymaps.lspBuf = {
 	  K = "hover";
