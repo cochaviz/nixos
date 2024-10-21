@@ -11,16 +11,27 @@ commit-temporary: is-main-or-testing
   git checkout {{testing-branch}} || git checkout -b {{testing-branch}}
   git commit --amend -m "Auto-commit" || echo "No changes to commit..."
   
-update:
+update KIND:
   nix flake update
-  just rebuild
+  [[ {{KIND}} == "boot" ]] && just rebuild-boot || just rebuild
 
-rebuild-nix: git-add
-  sudo nixos-rebuild switch --flake .
+rebuild-nix KIND: git-add
+  sudo nixos-rebuild {{KIND}} --flake .
 
-rebuild-home: git-add
-  home-manager switch --flake .
+rebuild-home KIND: git-add
+  home-manager {{KIND}} --flake .
 
-rebuild: rebuild-home rebuild-nix commit-temporary
-  
+rebuild:
+  just rebuild-home switch
+  just rebuild-nix switch
+  commit-temporary
+
+rebuild-boot:
+  just rebuild-home switch
+  just rebuild-nix boot
+  commit-temporary
+
+rebuild-only: 
+  just rebuild-home build
+  just rebuild-nix build
 
