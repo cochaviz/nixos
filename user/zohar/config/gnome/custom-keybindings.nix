@@ -13,19 +13,22 @@ let
       binding = bindingDefinition.binding;
     };
   };
+
   # returns the dconf settings for all custom keybindings
   mapAllCustomBindings = index: customBindings: 
     if customBindings == [] then []
     else
       [ (mapCustomBinding index (head customBindings)) ] ++ (mapAllCustomBindings (index + 1) (tail customBindings));
-  # we need to register each custom binding path so that it is included in the final dconf settings
-  registerCustomBindingNames = customBindings: {
-    "${customBindingPathBase}" = genList (i: "/${customBindingPath i}/") (length customBindings);
-  };
   # process the custom bindings
-  processCustomBindings = customBindings: 
-    listToAttrs (mapAllCustomBindings 0 customBindings) // registerCustomBindingNames customBindings;
+  processKeybindings = customBindings: (listToAttrs (mapAllCustomBindings 0 customBindings));
 
+  keyBindings = [
+    {
+      name = "Launch Terminal";
+      command = "kitty";
+      binding = "<Super><Shift>Return";
+    }
+  ];
   numOfDesktops = 9;
 in
   {
@@ -69,4 +72,9 @@ in
       switch-to-application-8 = [];
       switch-to-application-9 = [];
     };
-  } 
+    # register the custom keybindings (aka enable them)
+    "${customBindingPathBase}" = {
+      custom-keybindings = genList (i: "/${customBindingPath i}/") (length keyBindings);
+    };
+  # define the custom keybindings
+  } // (processKeybindings keyBindings)
