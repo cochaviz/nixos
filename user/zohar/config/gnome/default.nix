@@ -8,10 +8,14 @@ in
     home.packages = with pkgs; [
         bibata-cursors
         wmctrl
+
         gnomeExtensions.pop-shell
         gnomeExtensions.blur-my-shell
         gnomeExtensions.just-perfection
     ];
+
+    gtk.iconTheme.name = "Tela";
+    gtk.iconTheme.package = pkgs.tela-icon-theme;
 
     dconf.settings = lib.recursiveUpdate
       customKeyBindings popOsKeybindings;

@@ -25,7 +25,6 @@ in {
     zen-browser
     keepassxc
     spotify
-    signal-desktop
 
     vscode
     btop

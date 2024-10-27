@@ -55,16 +55,16 @@
       python3Packages.pwntools
       python3Packages.pycrypto
       python3Packages.z3
-	  #    (sage.override {
-	  #      requireSageTests = false;
-	  #      extraPythonPackages = p:
-	  # with p; [
-	  #   pwntools
-	  #   pycryptodome
-	  #   gmpy2
-	  #   z3-solver
-	  # ];
-	  #    })
+	    (sage.override {
+	      requireSageTests = false;
+	      extraPythonPackages = p:
+	  with p; [
+	    pwntools
+	    pycryptodome
+	    gmpy2
+	    # z3-solver
+	  ];
+	    })
     ];
 
     dns = with pkgs; [

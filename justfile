@@ -1,6 +1,9 @@
 set shell := ["bash", "-c"]
 testing-branch := "testing"
 
+git-change-in FOLDER:
+  git status -s | grep {{FOLDER}} 
+
 git-add:
   git add .
 
