@@ -88,7 +88,10 @@
 	    installCargo = true;
 	    installRustc = true;
 	  };
-
+	  hls = {
+	    enable = true;
+	    installGhc = false;
+	  };
 
 	  cssls.enable = true; # css
 	  html.enable = true; # html
@@ -106,6 +109,9 @@
 
 	  "<C-.>".action = "code_action";
 	};
+      };
+      lsp-format = {
+	enable = true;
       };
     };
 

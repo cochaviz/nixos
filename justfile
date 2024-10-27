@@ -24,12 +24,12 @@ rebuild-home KIND: git-add
 rebuild:
   just rebuild-home switch
   just rebuild-nix switch
-  commit-temporary
+  just commit-temporary
 
 rebuild-boot:
   just rebuild-home switch
   just rebuild-nix boot
-  commit-temporary
+  just commit-temporary
 
 rebuild-only: 
   just rebuild-home build

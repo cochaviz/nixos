@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   popOsKeybindings = import ./pop-os-keybindings.nix;
@@ -9,6 +9,8 @@ in
         bibata-cursors
         wmctrl
         gnomeExtensions.pop-shell
+        gnomeExtensions.blur-my-shell
+        gnomeExtensions.just-perfection
     ];
 
     dconf.settings = lib.recursiveUpdate
