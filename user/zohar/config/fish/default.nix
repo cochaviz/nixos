@@ -23,4 +23,9 @@
     recursive = true;
     source = ./functions;
   };
+  home.file.".config/fish/conf.d" = {
+    enable = true;
+    recursive = true;
+    source = ./conf.d;
+  };
 }
