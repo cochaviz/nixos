@@ -12,6 +12,7 @@ in
         gnomeExtensions.pop-shell
         gnomeExtensions.blur-my-shell
         gnomeExtensions.just-perfection
+	gnomeExtensions.rounded-window-corners-reborn
     ];
 
     gtk.iconTheme.name = "Tela";
